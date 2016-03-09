@@ -1,0 +1,23 @@
+<style 
+<ion-view >
+  <ion-content class="padding login-page">
+    <div ng-show="loginStatus!=''">
+      <span class="assertive text-font-14">{{loginStatus}}</span>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon ion-person placeholder-icon"></i>
+        <input ng-model="credentials.username" placeholder="Username" placeholder="iamjohn" type="text"/>
+      </label>
+      <span class="input-label"></span>
+    </label>
+    <label class="item item-input">
+      <i class="icon ion-android-lock placeholder-icon"></i>
+      <input ng-model="credentials.password" placeholder="*********" placeholder="Password" type="password"/>
+    </label>
+    <button class="button button-full button-large button-balanced" ng-click="login(credentials)">
+      Login
+    </button>
+  </div>
+</ion-content>
+</ion-view>
