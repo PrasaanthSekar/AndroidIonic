@@ -1,1 +1,32 @@
 /* Empty. Add your own CSS if you like */
+  .login-page {
+    background: url("../img/lambo.jpeg") no-repeat top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
+
+  .login-page .list {
+    padding-top: 280px;
+  }
+
+  .login-page .list .button {
+     background: #e73040;
+     border: 0;
+  }
+
+  .login-page .list .item-input {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #e73040;
+  }
+
+  .login-page .list .item-input input, .login-page .list .item-input input::-webkit-input-placeholder {
+    color: #fff;
+    text-align: center;
+  }
+
+  .login-page .list .item-input .icon {
+     color: #e73040;
+     font-size: 24px;
+  }
