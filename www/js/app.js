@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform, $state) {
+.run(function($ionicPlatform, $state, $rootScope) {
   $state.go('login');
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -22,7 +22,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleDefault();
     }
   });
+
+  $rootScope.alertOnConnctionFailure = function() {
+    $ionicPopup.show({
+      template: 'Couldn\'t connect to internet.',
+      title: 'Connection Error',
+      buttons: [{
+        text: 'Close',
+        onTap: function(e) {
+          console.log('Exiting app');
+          window.close();
+          ionic.Platform.exitApp();
+        }
+      }, {
+        text: 'Retry',
+        type: 'button-positive',
+        onTap: function(e) {
+          $state.go('login');
+        }
+      }, ]
+    });
+  };
 })
+
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -35,9 +57,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('login', {
       url: '/login',
-      templateUrl: 'templates/login.html'
+      templateUrl: 'templates/login.html',
+      controller: 'login-controller'
   })
 
+  .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'templates/dashboard.html'
+  })
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
