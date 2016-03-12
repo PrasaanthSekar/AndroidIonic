@@ -33,6 +33,7 @@ captures/
 
 node_modules
 .tmp
+.idea
 .sass-cache
 **/bower_components or sometimes it is lib/**
 platforms
